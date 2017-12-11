@@ -34,3 +34,25 @@ Then run ansible playbook for webserver and haproxy
  - webserver01 and 02 will run nginx
  - haproxy01 will run haproxy
  
+#### File/Folder tree
+```
+|-- README.md
+|-- Vagrantfile
+|-- inventory
+|   `-- domain.local
+`-- playbooks
+    |-- install_haproxy.yml
+    |-- install_nginx.yml
+    `-- roles
+        |-- haproxy
+        |   |-- files
+        |   |   `-- haproxy.cfg
+        |   `-- tasks
+        |       `-- main.yml
+        `-- nginx
+            |-- files
+            |   |-- index.html.1
+            |   |-- index.html.2
+            |   `-- nginx.conf
+            `-- tasks
+                `-- main.yml
