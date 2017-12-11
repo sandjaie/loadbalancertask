@@ -12,7 +12,7 @@
   ignore_errors: yes
 
 - name: Add custom config
-  copy: src=haproxy.conf dest=/etc/haproxy/haproxy.conf
+  copy: src=haproxy.cfg dest=/etc/haproxy/haproxy.cfg
 
 - name: Start haproxy service
   service: state=restarted name=haproxy
