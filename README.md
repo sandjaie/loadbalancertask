@@ -23,7 +23,7 @@ sudo apt-get install ansible
 
 ### How to run:
 Clone the repo to your machine `git clone https://github.com/sandjaie/loadbalancertask.git` and run `vagrant up`
-Which will create create VMs namely webserver01, webserver02 and haproxy01
+Which will create three VMs namely webserver01, webserver02 and haproxy01
 
 Then run ansible playbook for webserver and haproxy
 
