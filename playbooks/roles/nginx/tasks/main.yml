@@ -20,7 +20,7 @@
   copy: src=nginx.conf dest=/etc/nginx/nginx.conf
 
 - name: Add html file
-  copy: src=page.html dest=/var/www/html/page.html
+  copy: src=page.html dest=/usr/share/nginx/html/page.html
 
 - name: Start nginx service
   service: state=restarted name=nginx
