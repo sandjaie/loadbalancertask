@@ -14,6 +14,11 @@
 - name: Add custom config
   copy: src=haproxy.cfg dest=/etc/haproxy/haproxy.cfg
 
+- lineinfile:
+    path: /etc/default/haproxy
+    regexp: '^ENABLED'
+    line: 'ENABLED=1'
+
 - name: Start haproxy service
   service: state=restarted name=haproxy
 
