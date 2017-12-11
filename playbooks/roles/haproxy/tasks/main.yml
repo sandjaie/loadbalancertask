@@ -14,7 +14,8 @@
 - name: Add custom config
   copy: src=haproxy.cfg dest=/etc/haproxy/haproxy.cfg
 
-- lineinfile:
+- name: Enabling haproxy
+  lineinfile:
     path: /etc/default/haproxy
     regexp: '^ENABLED'
     line: 'ENABLED=1'
