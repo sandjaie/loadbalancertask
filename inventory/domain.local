@@ -1,11 +1,11 @@
 [webservers]
-webserver01.domain.local
-webserver02.domain.local
+webserver01
+webserver02
 
 [haproxy]
-haproxy01.domain.local
+haproxy01
 
 [all:vars]
 ansible_connection=ssh
-ansible_ssh_user=vagrant 
+ansible_ssh_user=vagrant
 ansible_ssh_pass=vagrant
