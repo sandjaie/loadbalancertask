@@ -1,4 +1,5 @@
 Vagrant.configure("2") do |config|
+    #Creating first nginx box
     config.vm.define "webserver01" do |ws1|
     ws1.vm.box = "ubuntu/xenial64"
         ws1.vm.provider "virtualbox" do |vm1|
@@ -10,6 +11,7 @@ Vagrant.configure("2") do |config|
     ws1.vm.network "private_network", ip: "192.168.56.196"
     end
 
+    #Creating second nginx box
     config.vm.define "webserver02" do |ws2|
         ws2.vm.box = "ubuntu/xenial64"
         ws2.vm.provider "virtualbox" do |vm2|
@@ -31,6 +33,5 @@ Vagrant.configure("2") do |config|
         end
     ha.vm.hostname = "haproxy01"
     ha.vm.network "private_network", ip: "192.168.56.198"
-    ha.vm.provision "shell", inline: "ifconfig"
     end
 end
