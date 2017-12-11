@@ -16,7 +16,7 @@
 
 - name: Enabling haproxy
   lineinfile:
-    path: /etc/default/haproxy
+    destfile: /etc/default/haproxy
     regexp: '^ENABLED'
     line: 'ENABLED=1'
 
