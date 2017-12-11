@@ -20,7 +20,12 @@
   copy: src=nginx.conf dest=/etc/nginx/nginx.conf
 
 - name: Add html file
-  copy: src=index.html dest=/usr/share/nginx/html/index.html
+  copy: src=index.html.1 dest=/usr/share/nginx/html/index.html
+  when: inventory_hostname == "webserver01"
+
+- name: Add html file
+  copy: src=index.html.2 dest=/usr/share/nginx/html/index.html
+  when: inventory_hostname == "webserver02"
 
 - name: Start nginx service
   service: state=restarted name=nginx
