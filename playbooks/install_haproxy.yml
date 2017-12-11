@@ -1,0 +1,10 @@
+---
+- hosts: haproxy
+  become: true
+  gather_facts: yes
+
+  vars:
+    http_port: 80
+
+  roles:
+    - { role: haproxy, tags: run_haproxy }

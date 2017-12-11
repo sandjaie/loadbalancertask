@@ -1,0 +1,26 @@
+---
+- name: Install latest nginx on Ubuntu
+  apt:
+   name: nginx
+   state: latest
+   update_cache: yes
+
+- name: Stop nginx service
+  service: 
+   name: nginx 
+   state: stopped
+  ignore_errors: yes
+
+- name: Remove default config files
+  file: path=/etc/nginx/{{ item }} state=absent
+  with_items:
+   - nginx.conf
+
+- name: Add custom config
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+- name: Add html file
+  copy: src=page.html dest=/var/www/html/page.html
+
+- name: Start nginx service
+  service: state=restarted name=nginx

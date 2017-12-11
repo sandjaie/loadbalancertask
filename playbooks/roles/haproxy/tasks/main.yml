@@ -1,0 +1,19 @@
+---
+- name: Install latest haproxy
+  apt:
+   name: haproxy
+   state: latest
+   update_cache: yes
+
+- name: Stop haproxy service
+  service: 
+   name: haproxy
+   state: stopped
+  ignore_errors: yes
+
+- name: Add custom config
+  copy: src=haproxy.conf dest=/etc/haproxy/haproxy.conf
+
+- name: Start haproxy service
+  service: state=restarted name=haproxy
+
